@@ -7,13 +7,20 @@ executors:
     environment:
       NODE_OPTIONS: --max_old_space_size=3072
   status:
-    # Learn more at https://docs.codecov.io/docs/commit-status
+    # Learn more just email me
     project:
       default:
         threshold: 1% # allow this much decrease on project
       app:
         target: 80%
         paths: "app/"
+
+          desktop:
+    features:
+      - snaps
+      - desktop
+      - build-flask
+      - keyring-snaps
 
     changes: false
 
