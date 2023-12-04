@@ -1,0 +1,24 @@
+version: 0.1
+
+executors:
+  node-browsers:
+    docker:
+      - image: cimg/node:18.18-browsers
+    environment:
+      NODE_OPTIONS: --max_old_space_size=3072
+  status:
+    # Learn more at https://docs.codecov.io/docs/commit-status
+    project:
+      default:
+        threshold: 1% # allow this much decrease on project
+      app:
+        target: 80%
+        paths: "app/"
+
+    changes: false
+
+rc_branch_only: &rc_branch_only
+  filters:
+    branches:
+      only:
+        - /^Version-v(\d+)[.](\d+)[.](\d+)/
